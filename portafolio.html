@@ -6,165 +6,1019 @@
 
     <title>Portafolio | DigiAR Rv</title>
 
-    <link rel="stylesheet" href="style.css">
+    <style>
+        /* ==============================
+           CONFIGURACIÓN GENERAL
+        ============================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #05080c;
+            color: #f5f7fa;
+            font-family: Arial, Helvetica, sans-serif;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            width: 700px;
+            height: 700px;
+            border-radius: 50%;
+            background: rgba(70, 100, 140, 0.08);
+            top: -300px;
+            right: -200px;
+            filter: blur(100px);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* ==============================
+           HEADER
+        ============================== */
+
+        header {
+            height: 82px;
+            padding: 0 6%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            border-bottom: 1px solid rgba(255,255,255,0.10);
+
+            background: rgba(5, 8, 12, 0.90);
+            backdrop-filter: blur(15px);
+
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 150px;
+            max-height: 58px;
+            object-fit: contain;
+        }
+
+        .menu-btn {
+            width: 50px;
+            height: 50px;
+
+            border: 1px solid rgba(255,255,255,0.18);
+            border-radius: 11px;
+
+            background: rgba(255,255,255,0.025);
+            color: white;
+
+            font-size: 25px;
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+        .menu-btn:hover {
+            background: white;
+            color: #05080c;
+        }
+
+        /* ==============================
+           MENÚ LATERAL
+        ============================== */
+
+        .side-menu {
+            position: fixed;
+            right: -340px;
+            top: 0;
+
+            width: 340px;
+            height: 100vh;
+
+            background: #090d12;
+
+            border-left: 1px solid rgba(255,255,255,0.10);
+
+            padding: 30px;
+
+            z-index: 1000;
+
+            transition: 0.35s ease;
+
+            box-shadow: -20px 0 60px rgba(0,0,0,0.5);
+        }
+
+        .side-menu.open {
+            right: 0;
+        }
+
+        .close-btn {
+            width: 45px;
+            height: 45px;
+
+            background: transparent;
+            color: white;
+
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 10px;
+
+            font-size: 25px;
+            cursor: pointer;
+
+            margin-bottom: 60px;
+        }
+
+        .side-menu a {
+            display: block;
+
+            color: #e7ebef;
+            text-decoration: none;
+
+            font-size: 18px;
+
+            padding: 17px 12px;
+
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+
+            transition: 0.25s;
+        }
+
+        .side-menu a:hover {
+            padding-left: 22px;
+            color: white;
+        }
+
+        /* ==============================
+           PORTADA
+        ============================== */
+
+        .hero {
+            max-width: 1150px;
+            margin: auto;
+
+            padding: 100px 35px 70px;
+
+            position: relative;
+        }
+
+        .mini-title {
+            color: #a5b4c5;
+
+            font-size: 12px;
+            font-weight: bold;
+
+            letter-spacing: 5px;
+
+            margin-bottom: 25px;
+        }
+
+        .hero h1 {
+            font-size: clamp(55px, 8vw, 92px);
+
+            line-height: 0.92;
+
+            letter-spacing: -4px;
+
+            margin-bottom: 35px;
+        }
+
+        .hero h1 span {
+            color: #9baec5;
+        }
+
+        .hero-text {
+            max-width: 650px;
+
+            color: #aeb8c4;
+
+            font-size: 17px;
+
+            line-height: 1.75;
+        }
+
+        /* Línea decorativa */
+
+        .hero::after {
+            content: "";
+
+            position: absolute;
+
+            width: 650px;
+            height: 1px;
+
+            right: -100px;
+            top: 120px;
+
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(130,160,190,0.5),
+                transparent
+            );
+
+            transform: rotate(-25deg);
+        }
+
+        /* ==============================
+           PROYECTOS
+        ============================== */
+
+        .portfolio {
+            max-width: 1150px;
+            margin: auto;
+
+            padding: 0 25px 80px;
+        }
+
+        .project {
+            display: grid;
+
+            grid-template-columns: 1.1fr 1fr;
+
+            gap: 35px;
+
+            padding: 22px;
+
+            margin-bottom: 24px;
+
+            border: 1px solid rgba(160,180,200,0.20);
+
+            border-radius: 20px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(255,255,255,0.045),
+                    rgba(255,255,255,0.012)
+                );
+
+            box-shadow:
+                0 25px 70px rgba(0,0,0,0.28);
+
+            transition: 0.35s;
+        }
+
+        .project:hover {
+            transform: translateY(-5px);
+
+            border-color: rgba(180,200,220,0.35);
+
+            box-shadow:
+                0 35px 90px rgba(0,0,0,0.42);
+        }
+
+        /* ==============================
+           IMAGEN DEL PROYECTO
+        ============================== */
+
+        .project-preview {
+            min-height: 330px;
+
+            border-radius: 14px;
+
+            overflow: hidden;
+
+            position: relative;
+
+            background:
+                radial-gradient(
+                    circle at center,
+                    #263444,
+                    #080b10 70%
+                );
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .preview-content {
+            width: 82%;
+            height: 75%;
+
+            border-radius: 8px;
+
+            background: #10151b;
+
+            border: 1px solid rgba(255,255,255,0.15);
+
+            box-shadow:
+                0 25px 40px rgba(0,0,0,0.5);
+
+            overflow: hidden;
+
+            position: relative;
+        }
+
+        .preview-bar {
+            height: 25px;
+
+            background: #191f27;
+
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+
+            display: flex;
+            align-items: center;
+
+            padding-left: 10px;
+
+            gap: 5px;
+        }
+
+        .preview-dot {
+            width: 7px;
+            height: 7px;
+
+            border-radius: 50%;
+
+            background: #657384;
+        }
+
+        .preview-screen {
+            height: calc(100% - 25px);
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            flex-direction: column;
+
+            gap: 12px;
+        }
+
+        /* ArCompra */
+
+        .arcompra-preview .preview-screen {
+            background:
+                linear-gradient(
+                    145deg,
+                    #101419,
+                    #252b32
+                );
+        }
+
+        .arcompra-title {
+            font-size: 27px;
+            font-weight: bold;
+
+            color: #f1f4f7;
+        }
+
+        .arcompra-line {
+            width: 65%;
+            height: 11px;
+
+            border-radius: 20px;
+
+            background: #343d47;
+        }
+
+        .arcompra-products {
+            display: flex;
+            gap: 8px;
+        }
+
+        .product-box {
+            width: 42px;
+            height: 55px;
+
+            border-radius: 6px;
+
+            background: #1f2730;
+
+            border: 1px solid rgba(255,255,255,0.10);
+        }
+
+        /* Barbería */
+
+        .barber-preview .preview-screen {
+            background:
+                linear-gradient(
+                    145deg,
+                    #11100e,
+                    #252019
+                );
+        }
+
+        .barber-title {
+            font-size: 25px;
+            font-weight: bold;
+
+            color: #d5b56d;
+
+            letter-spacing: 2px;
+        }
+
+        .barber-line {
+            width: 55%;
+            height: 2px;
+
+            background: #a98442;
+        }
+
+        .barber-chair {
+            width: 85px;
+            height: 65px;
+
+            border-radius: 8px;
+
+            border: 2px solid #80642f;
+        }
+
+        /* ==============================
+           INFORMACIÓN
+        ============================== */
+
+        .project-info {
+            display: flex;
+            flex-direction: column;
+
+            justify-content: center;
+
+            padding: 25px 20px;
+        }
+
+        .project-number {
+            color: #9aa9b9;
+
+            font-size: 20px;
+
+            letter-spacing: 3px;
+
+            margin-bottom: 15px;
+        }
+
+        .project-tag {
+            width: fit-content;
+
+            padding: 9px 14px;
+
+            border: 1px solid rgba(150,175,200,0.30);
+
+            border-radius: 50px;
+
+            color: #b9c6d3;
+
+            font-size: 10px;
+
+            letter-spacing: 1.5px;
+
+            font-weight: bold;
+
+            margin-bottom: 22px;
+        }
+
+        .project-info h2 {
+            font-size: 42px;
+
+            letter-spacing: -1px;
+
+            margin-bottom: 18px;
+        }
+
+        .project-description {
+            color: #aab5c0;
+
+            font-size: 15px;
+
+            line-height: 1.75;
+
+            margin-bottom: 28px;
+
+            max-width: 500px;
+        }
+
+        .details {
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 15px;
+
+            margin-bottom: 30px;
+        }
+
+        .detail {
+            border-left: 1px solid #46515e;
+
+            padding-left: 12px;
+        }
+
+        .detail small {
+            display: block;
+
+            color: #778493;
+
+            font-size: 10px;
+
+            margin-bottom: 6px;
+        }
+
+        .detail strong {
+            color: #dce2e8;
+
+            font-size: 12px;
+
+            font-weight: normal;
+        }
+
+        /* ==============================
+           BOTÓN
+        ============================== */
+
+        .view-button {
+            width: fit-content;
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 15px;
+
+            padding: 14px 23px;
+
+            border-radius: 50px;
+
+            background: #e9eef4;
+
+            color: #080b0f;
+
+            text-decoration: none;
+
+            font-size: 13px;
+
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+        .view-button span {
+            font-size: 20px;
+
+            transition: 0.3s;
+        }
+
+        .view-button:hover {
+            background: white;
+
+            transform: translateX(5px);
+        }
+
+        .view-button:hover span {
+            transform: translateX(5px);
+        }
+
+        /* ==============================
+           FOOTER
+        ============================== */
+
+        footer {
+            border-top: 1px solid rgba(255,255,255,0.08);
+
+            text-align: center;
+
+            padding: 35px 20px;
+
+            color: #728091;
+
+            font-size: 12px;
+
+            letter-spacing: 1px;
+        }
+
+        /* ==============================
+           CELULAR
+        ============================== */
+
+        @media (max-width: 800px) {
+
+            header {
+                height: 72px;
+
+                padding: 0 22px;
+            }
+
+            .logo img {
+                width: 120px;
+            }
+
+            .hero {
+                padding: 75px 22px 55px;
+            }
+
+            .hero h1 {
+                font-size: 57px;
+
+                letter-spacing: -3px;
+            }
+
+            .hero-text {
+                font-size: 15px;
+            }
+
+            .hero::after {
+                display: none;
+            }
+
+            .portfolio {
+                padding: 0 18px 60px;
+            }
+
+            .project {
+                grid-template-columns: 1fr;
+
+                padding: 15px;
+
+                gap: 10px;
+            }
+
+            .project-preview {
+                min-height: 250px;
+            }
+
+            .project-info {
+                padding: 25px 15px 30px;
+            }
+
+            .project-info h2 {
+                font-size: 35px;
+            }
+
+            .details {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            .side-menu {
+                width: 290px;
+            }
+        }
+    </style>
 </head>
+
 
 <body>
 
-    <!-- MENÚ -->
-    <header class="navbar">
+    <!-- ==============================
+         HEADER
+    =============================== -->
 
-        <a href="index.html" class="logo-link">
-            <img src="assets/logo-digiar-rv.png" alt="DigiAR Rv">
+    <header>
+
+        <a href="index.html" class="logo">
+            <img
+                src="assets/logo-digiar-rv.png"
+                alt="DigiAR Rv"
+            >
         </a>
 
-        <button class="menu-button" id="menuButton">
+        <button
+            class="menu-btn"
+            id="menuBtn"
+            aria-label="Abrir menú"
+        >
             ☰
         </button>
 
     </header>
 
-    <!-- MENÚ LATERAL -->
-    <div class="side-menu" id="sideMenu">
 
-        <button class="close-menu" id="closeMenu">
+    <!-- ==============================
+         MENÚ
+    =============================== -->
+
+    <aside class="side-menu" id="sideMenu">
+
+        <button
+            class="close-btn"
+            id="closeBtn"
+        >
             ×
         </button>
 
-        <nav>
-            <a href="index.html">Qué hacemos</a>
-            <a href="sobre-nosotros.html">Sobre nosotros</a>
-            <a href="portafolio.html">Portafolio</a>
-        </nav>
+        <a href="index.html">
+            Qué hacemos
+        </a>
 
-    </div>
+        <a href="sobre-nosotros.html">
+            Sobre nosotros
+        </a>
 
-    <!-- PORTAFOLIO -->
+        <a href="portafolio.html">
+            Portafolio
+        </a>
+
+    </aside>
+
+
+    <!-- ==============================
+         ENCABEZADO
+    =============================== -->
+
+    <section class="hero">
+
+        <div class="mini-title">
+            DIGIAR RV · PROYECTOS
+        </div>
+
+        <h1>
+            Nuestro<br>
+            <span>portafolio.</span>
+        </h1>
+
+        <p class="hero-text">
+            Explora algunos de los proyectos que hemos desarrollado.
+            Creamos soluciones digitales pensadas para convertir ideas,
+            negocios y emprendimientos en experiencias modernas,
+            funcionales y accesibles.
+        </p>
+
+    </section>
+
+
+    <!-- ==============================
+         PORTAFOLIO
+    =============================== -->
+
     <main class="portfolio">
 
-        <section class="portfolio-header">
 
-            <p class="small-title">DIGIAR RV</p>
+        <!-- =================================
+             PROYECTO 01 — ARCOMPRA
+        ================================== -->
 
-            <h1>Nuestro portafolio</h1>
+        <article class="project">
 
-            <p>
-                Estos son algunos de los proyectos que hemos desarrollado
-                para demostrar cómo podemos transformar diferentes tipos
-                de negocios e ideas en experiencias digitales.
-            </p>
+            <div class="project-preview arcompra-preview">
 
-        </section>
+                <div class="preview-content">
+
+                    <div class="preview-bar">
+                        <span class="preview-dot"></span>
+                        <span class="preview-dot"></span>
+                        <span class="preview-dot"></span>
+                    </div>
+
+                    <div class="preview-screen">
+
+                        <div class="arcompra-title">
+                            ArCompra
+                        </div>
+
+                        <div class="arcompra-line"></div>
+
+                        <div class="arcompra-products">
+
+                            <div class="product-box"></div>
+                            <div class="product-box"></div>
+                            <div class="product-box"></div>
+                            <div class="product-box"></div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
 
 
-        <!-- PROYECTOS -->
-        <section class="projects">
-
-
-            <!-- ARCOMPRA -->
-            <article class="project-card">
+            <div class="project-info">
 
                 <div class="project-number">
                     01
                 </div>
 
-                <div class="project-content">
+                <div class="project-tag">
+                    APP · COMPARADOR DE PRECIOS
+                </div>
 
-                    <span class="project-type">
-                        APP · COMPARADOR DE PRECIOS
-                    </span>
+                <h2>
+                    ArCompra
+                </h2>
 
-                    <h2>ArCompra</h2>
+                <p class="project-description">
+                    Aplicación web creada para comparar precios de
+                    productos entre diferentes supermercados y facilitar
+                    la búsqueda de distintas opciones de compra.
+                </p>
 
-                    <p>
-                        Aplicación web creada para comparar precios de
-                        productos entre diferentes supermercados y ayudar
-                        a los usuarios a encontrar diferentes opciones
-                        de compra.
-                    </p>
+                <div class="details">
 
-                    <div class="project-info">
+                    <div class="detail">
 
-                        <span>Proyecto: ArCompra</span>
-                        <span>Tipo: App</span>
-                        <span>Desarrollado por: Alejandro Romero</span>
+                        <small>
+                            PROYECTO
+                        </small>
+
+                        <strong>
+                            ArCompra
+                        </strong>
 
                     </div>
 
-                    <a
-                        href="https://ar-compra-app.vercel.app/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="project-button"
-                    >
-                        Ver proyecto →
-                    </a>
+                    <div class="detail">
+
+                        <small>
+                            TIPO
+                        </small>
+
+                        <strong>
+                            App
+                        </strong>
+
+                    </div>
+
+                    <div class="detail">
+
+                        <small>
+                            DESARROLLADO POR
+                        </small>
+
+                        <strong>
+                            Alejandro Romero
+                        </strong>
+
+                    </div>
 
                 </div>
 
-            </article>
+                <a
+                    href="https://ar-compra-app.vercel.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="view-button"
+                >
+                    Ver proyecto
+                    <span>→</span>
+                </a>
+
+            </div>
+
+        </article>
 
 
-            <!-- BARBERÍA -->
-            <article class="project-card">
+        <!-- =================================
+             PROYECTO 02 — BARBERÍA JADE
+        ================================== -->
+
+        <article class="project">
+
+            <div class="project-preview barber-preview">
+
+                <div class="preview-content">
+
+                    <div class="preview-bar">
+                        <span class="preview-dot"></span>
+                        <span class="preview-dot"></span>
+                        <span class="preview-dot"></span>
+                    </div>
+
+                    <div class="preview-screen">
+
+                        <div class="barber-title">
+                            BARBERÍA JADE
+                        </div>
+
+                        <div class="barber-line"></div>
+
+                        <div class="barber-chair"></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="project-info">
 
                 <div class="project-number">
                     02
                 </div>
 
-                <div class="project-content">
+                <div class="project-tag">
+                    PÁGINA WEB · BARBERÍA
+                </div>
 
-                    <span class="project-type">
-                        PÁGINA WEB · BARBERÍA
-                    </span>
+                <h2>
+                    Barbería Jade
+                </h2>
 
-                    <h2>Barbería Jade</h2>
+                <p class="project-description">
+                    Página web desarrollada para una barbería, con servicios,
+                    equipo de barberos, horarios, ubicaciones, información
+                    de contacto y una identidad visual personalizada.
+                </p>
 
-                    <p>
-                        Página web creada para una barbería, con
-                        presentación de servicios, barberos, horarios,
-                        ubicaciones, información de contacto y sistema
-                        visual personalizado.
-                    </p>
+                <div class="details">
 
-                    <div class="project-info">
+                    <div class="detail">
 
-                        <span>Proyecto: Barbería Jade</span>
-                        <span>Tipo: Página web</span>
-                        <span>Cliente: Luis Fernando Redondo</span>
+                        <small>
+                            PROYECTO
+                        </small>
+
+                        <strong>
+                            Barbería Jade
+                        </strong>
 
                     </div>
 
-                    <a
-                        href="https://barberia-jade-omega.vercel.app/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="project-button"
-                    >
-                        Ver proyecto →
-                    </a>
+                    <div class="detail">
+
+                        <small>
+                            TIPO
+                        </small>
+
+                        <strong>
+                            Página web
+                        </strong>
+
+                    </div>
+
+                    <div class="detail">
+
+                        <small>
+                            CLIENTE
+                        </small>
+
+                        <strong>
+                            Luis Fernando Redondo
+                        </strong>
+
+                    </div>
 
                 </div>
 
-            </article>
+                <a
+                    href="https://barberia-jade-omega.vercel.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="view-button"
+                >
+                    Ver proyecto
+                    <span>→</span>
+                </a>
 
+            </div>
 
-        </section>
+        </article>
+
 
     </main>
 
 
-    <!-- FOOTER -->
+    <!-- ==============================
+         FOOTER
+    =============================== -->
+
     <footer>
 
-        <p>
-            © 2026 DigiAR Rv · Digitalizamos negocios.
-        </p>
+        © 2026 DigiAR Rv · Digitalizamos negocios.
 
     </footer>
 
 
-    <script src="script.js"></script>
+    <!-- ==============================
+         JAVASCRIPT
+    =============================== -->
+
+    <script>
+
+        const menuBtn = document.getElementById("menuBtn");
+        const closeBtn = document.getElementById("closeBtn");
+        const sideMenu = document.getElementById("sideMenu");
+
+        menuBtn.addEventListener("click", function () {
+            sideMenu.classList.add("open");
+        });
+
+        closeBtn.addEventListener("click", function () {
+            sideMenu.classList.remove("open");
+        });
+
+        document.querySelectorAll(".side-menu a").forEach(function(link) {
+
+            link.addEventListener("click", function() {
+                sideMenu.classList.remove("open");
+            });
+
+        });
+
+    </script>
 
 </body>
 </html>
