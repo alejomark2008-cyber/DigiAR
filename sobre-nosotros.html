@@ -1,1 +1,767 @@
-<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Sobre nosotros | DigiAR Rv</title><link rel="stylesheet" href="style.css"></head><body class="inner-page"><button class="menu-btn" id="menuBtn"><span></span><span></span><span></span></button><div class="overlay" id="overlay"></div><aside class="drawer" id="drawer"><div class="drawer-head"><div class="mini-brand">DigiAR <b>Rv</b></div><button class="close-btn" id="closeBtn">×</button></div><nav><a href="index.html">Qué hacemos</a><a class="active" href="sobre-nosotros.html">Sobre nosotros</a><a href="portafolio.html">Portafolio</a></nav><div class="drawer-bottom">Webs · Apps · Digitalización</div></aside><main class="inner-main"><div class="inner-brand">DigiAR <em>Rv</em><small>WEB · APPS · DIGITALIZACIÓN</small></div><section class="inner-card"><span class="eyebrow">SOBRE NOSOTROS</span><h1>Una idea para llevar<br><span>negocios al mundo digital.</span></h1><p>DigiAR Rv nació con una idea de negocio creada por <strong>Alejandro Romero</strong> a sus 18 años: ayudar a que los negocios físicos puedan tener una presencia digital profesional y llegar a más clientes.</p><p>Diseñamos páginas web, aplicaciones, catálogos digitales y piezas de publicidad para negocios que quieren mostrar lo que hacen de una manera moderna, clara y atractiva.</p><p>Trabajamos especialmente con barberías, peluquerías, spas, restaurantes, tiendas, emprendimientos y negocios locales que quieren comenzar o crecer en el mundo digital.</p><div class="quote">“Tu negocio también puede crecer en el mundo digital.”</div></section></main><script src="script.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Sobre nosotros | DigiAR Rv</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* ==============================
+       SOBRE NOSOTROS - DIGIAR RV
+       ============================== */
+
+    .about-page {
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at 85% 10%, rgba(80, 110, 140, 0.12), transparent 30%),
+        radial-gradient(circle at 10% 45%, rgba(255, 255, 255, 0.035), transparent 28%),
+        #0b0d0f;
+      color: #fff;
+      overflow: hidden;
+    }
+
+    /* HEADER */
+
+    .about-header {
+      width: 100%;
+      padding: 28px 6%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+      z-index: 10;
+    }
+
+    .about-logo img {
+      width: 125px;
+      height: auto;
+      display: block;
+    }
+
+    .menu-button {
+      width: 48px;
+      height: 48px;
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 50%;
+      background: rgba(255,255,255,0.035);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    .menu-button span {
+      width: 18px;
+      height: 1px;
+      background: #fff;
+      display: block;
+    }
+
+    .menu-button:hover {
+      background: rgba(255,255,255,0.09);
+      transform: rotate(4deg);
+    }
+
+    /* MENU */
+
+    .side-menu {
+      position: fixed;
+      top: 0;
+      right: -330px;
+      width: 330px;
+      height: 100vh;
+      background: #101316;
+      border-left: 1px solid rgba(255,255,255,0.1);
+      z-index: 100;
+      padding: 35px;
+      transition: right 0.4s ease;
+      box-shadow: -20px 0 60px rgba(0,0,0,0.35);
+    }
+
+    .side-menu.active {
+      right: 0;
+    }
+
+    .close-menu {
+      width: 42px;
+      height: 42px;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 50%;
+      background: transparent;
+      color: white;
+      font-size: 22px;
+      cursor: pointer;
+      float: right;
+    }
+
+    .side-menu-content {
+      clear: both;
+      padding-top: 80px;
+    }
+
+    .side-menu-content p {
+      color: #777;
+      font-size: 12px;
+      letter-spacing: 2px;
+      margin-bottom: 25px;
+      text-transform: uppercase;
+    }
+
+    .side-menu-content a {
+      display: block;
+      color: #fff;
+      text-decoration: none;
+      font-size: 25px;
+      margin: 24px 0;
+      transition: 0.3s ease;
+    }
+
+    .side-menu-content a:hover {
+      color: #9aa7b2;
+      padding-left: 8px;
+    }
+
+    /* HERO */
+
+    .about-hero {
+      width: 88%;
+      max-width: 1250px;
+      margin: 60px auto 100px;
+      position: relative;
+    }
+
+    .small-label {
+      color: #7d8993;
+      font-size: 12px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 25px;
+    }
+
+    .about-hero h1 {
+      max-width: 900px;
+      font-size: clamp(48px, 8vw, 105px);
+      line-height: 0.95;
+      letter-spacing: -5px;
+      font-weight: 500;
+      margin: 0;
+    }
+
+    .about-hero h1 span {
+      color: #737e87;
+    }
+
+    .hero-description {
+      max-width: 700px;
+      margin-top: 40px;
+      color: #aeb4b9;
+      font-size: 18px;
+      line-height: 1.8;
+    }
+
+    /* STORY */
+
+    .story-section {
+      width: 88%;
+      max-width: 1250px;
+      margin: 0 auto 130px;
+      display: grid;
+      grid-template-columns: 0.8fr 1.5fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .section-number {
+      color: #606b74;
+      font-size: 13px;
+      letter-spacing: 3px;
+    }
+
+    .story-content h2 {
+      font-size: clamp(35px, 5vw, 65px);
+      line-height: 1;
+      font-weight: 500;
+      letter-spacing: -2px;
+      margin: 0 0 35px;
+    }
+
+    .story-content h2 span {
+      color: #747f88;
+    }
+
+    .story-content p {
+      max-width: 760px;
+      color: #a7adb2;
+      font-size: 17px;
+      line-height: 1.9;
+      margin: 0 0 25px;
+    }
+
+    /* LINE */
+
+    .divider {
+      width: 88%;
+      max-width: 1250px;
+      height: 1px;
+      margin: 0 auto 90px;
+      background: rgba(255,255,255,0.09);
+    }
+
+    /* TEAM */
+
+    .team-section {
+      width: 88%;
+      max-width: 1250px;
+      margin: 0 auto 130px;
+    }
+
+    .team-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      margin-bottom: 55px;
+      gap: 30px;
+    }
+
+    .team-heading h2 {
+      font-size: clamp(40px, 6vw, 75px);
+      line-height: 0.95;
+      font-weight: 500;
+      letter-spacing: -4px;
+      margin: 0;
+    }
+
+    .team-heading p {
+      max-width: 380px;
+      color: #7e878e;
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+    }
+
+    .team-card {
+      min-height: 310px;
+      padding: 25px;
+      background:
+        linear-gradient(145deg, rgba(255,255,255,0.055), rgba(255,255,255,0.015));
+      border: 1px solid rgba(255,255,255,0.08);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: 0.35s ease;
+      overflow: hidden;
+    }
+
+    .team-card::before {
+      content: "";
+      position: absolute;
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      background: rgba(110,130,145,0.08);
+      right: -70px;
+      top: -70px;
+      transition: 0.4s ease;
+    }
+
+    .team-card:hover {
+      transform: translateY(-7px);
+      border-color: rgba(255,255,255,0.18);
+    }
+
+    .team-card:hover::before {
+      transform: scale(1.5);
+    }
+
+    .member-number {
+      font-size: 11px;
+      color: #69747d;
+      letter-spacing: 2px;
+    }
+
+    .member-name {
+      font-size: 23px;
+      line-height: 1.1;
+      font-weight: 500;
+      position: relative;
+      z-index: 2;
+    }
+
+    .member-role {
+      font-size: 11px;
+      color: #818c94;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-top: 8px;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* OBJECTIVE */
+
+    .objective-section {
+      width: 88%;
+      max-width: 1250px;
+      margin: 0 auto 130px;
+      padding: 70px 0;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .objective-label {
+      color: #737f88;
+      font-size: 12px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 25px;
+    }
+
+    .objective-section h2 {
+      max-width: 1050px;
+      font-size: clamp(38px, 6vw, 78px);
+      line-height: 1.05;
+      letter-spacing: -4px;
+      font-weight: 500;
+      margin: 0 0 35px;
+    }
+
+    .objective-section h2 span {
+      color: #6e7982;
+    }
+
+    .objective-section p {
+      max-width: 700px;
+      color: #9ca4aa;
+      font-size: 17px;
+      line-height: 1.8;
+    }
+
+    /* FINAL */
+
+    .final-section {
+      width: 88%;
+      max-width: 1250px;
+      margin: 0 auto 100px;
+      text-align: center;
+    }
+
+    .final-section h2 {
+      font-size: clamp(40px, 7vw, 90px);
+      font-weight: 500;
+      letter-spacing: -5px;
+      margin: 0;
+    }
+
+    .final-section p {
+      color: #7f898f;
+      margin-top: 20px;
+      font-size: 16px;
+    }
+
+    /* FOOTER */
+
+    .about-footer {
+      width: 88%;
+      max-width: 1250px;
+      margin: 0 auto;
+      padding: 30px 0 45px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #606970;
+      font-size: 12px;
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 900px) {
+
+      .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .story-section {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .team-heading {
+        display: block;
+      }
+
+      .team-heading p {
+        margin-top: 25px;
+      }
+    }
+
+    @media (max-width: 600px) {
+
+      .about-header {
+        padding: 22px 6%;
+      }
+
+      .about-logo img {
+        width: 105px;
+      }
+
+      .about-hero {
+        margin-top: 45px;
+        margin-bottom: 80px;
+      }
+
+      .about-hero h1 {
+        letter-spacing: -3px;
+      }
+
+      .hero-description {
+        font-size: 16px;
+      }
+
+      .story-section,
+      .team-section,
+      .objective-section,
+      .final-section {
+        width: 88%;
+      }
+
+      .team-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .team-card {
+        min-height: 230px;
+      }
+
+      .side-menu {
+        width: 85%;
+      }
+
+      .about-footer {
+        display: block;
+      }
+
+      .about-footer p:last-child {
+        margin-top: 12px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="about-page">
+
+    <!-- HEADER -->
+    <header class="about-header">
+
+      <a href="index.html" class="about-logo">
+        <img src="assets/logo-digiar-rv.png" alt="DigiAR Rv">
+      </a>
+
+      <button class="menu-button" id="openMenu" aria-label="Abrir menú">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+    </header>
+
+
+    <!-- MENÚ LATERAL -->
+    <aside class="side-menu" id="sideMenu">
+
+      <button class="close-menu" id="closeMenu">×</button>
+
+      <div class="side-menu-content">
+
+        <p>DigiAR Rv</p>
+
+        <a href="index.html">Qué hacemos</a>
+        <a href="sobre-nosotros.html">Sobre nosotros</a>
+        <a href="portafolio.html">Portafolio</a>
+
+      </div>
+
+    </aside>
+
+
+    <!-- HERO -->
+    <main>
+
+      <section class="about-hero">
+
+        <div class="small-label">
+          DIGIAR RV · SOBRE NOSOTROS
+        </div>
+
+        <h1>
+          Una idea que<br>
+          nació <span>entre amigos.</span>
+        </h1>
+
+        <p class="hero-description">
+          DigiAR Rv nació de la idea de un grupo de jóvenes amigos
+          que querían crear algo propio y aprovechar la tecnología
+          para ayudar a los negocios a crecer.
+        </p>
+
+      </section>
+
+
+      <!-- HISTORIA -->
+      <section class="story-section">
+
+        <div>
+          <div class="section-number">01 / NUESTRA HISTORIA</div>
+        </div>
+
+        <div class="story-content">
+
+          <h2>
+            De una idea entre amigos
+            <span>a un proyecto digital.</span>
+          </h2>
+
+          <p>
+            El proyecto fue fundado por <strong>Alejandro Romero</strong>,
+            quien al cumplir los 18 años decidió convertir esta idea
+            en un proyecto de negocio enfocado en la digitalización
+            de negocios y emprendimientos.
+          </p>
+
+          <p>
+            Junto a él estuvieron <strong>Jeremy Muñoz, Santiago Gomez,
+            Luis Bohorquez y Esteban Bustos</strong>, amigos y jóvenes
+            que compartieron ideas, aportaron conocimientos y ayudaron
+            a darle forma al proyecto.
+          </p>
+
+          <p>
+            La idea surgió de algo sencillo: muchos negocios tienen
+            grandes productos y servicios, pero todavía dependen
+            principalmente de lo físico para mostrarlos y llegar
+            a sus clientes.
+          </p>
+
+          <p>
+            Por eso nació DigiAR Rv, con el propósito de llevar esos
+            negocios al mundo digital mediante páginas web, aplicaciones,
+            catálogos digitales y diferentes soluciones tecnológicas.
+          </p>
+
+        </div>
+
+      </section>
+
+
+      <div class="divider"></div>
+
+
+      <!-- EQUIPO -->
+      <section class="team-section">
+
+        <div class="team-heading">
+
+          <h2>
+            Las personas<br>
+            detrás de la idea.
+          </h2>
+
+          <p>
+            Un proyecto construido a partir de ideas,
+            aprendizaje, creatividad y trabajo en equipo.
+          </p>
+
+        </div>
+
+
+        <div class="team-grid">
+
+          <!-- ALEJANDRO -->
+          <article class="team-card">
+
+            <div class="member-number">01</div>
+
+            <div>
+              <div class="member-name">
+                Alejandro<br>Romero
+              </div>
+
+              <div class="member-role">
+                Fundador · Founder & CEO
+              </div>
+            </div>
+
+          </article>
+
+
+          <!-- JEREMY -->
+          <article class="team-card">
+
+            <div class="member-number">02</div>
+
+            <div>
+              <div class="member-name">
+                Jeremy<br>Muñoz
+              </div>
+
+              <div class="member-role">
+                Equipo fundador
+              </div>
+            </div>
+
+          </article>
+
+
+          <!-- SANTIAGO -->
+          <article class="team-card">
+
+            <div class="member-number">03</div>
+
+            <div>
+              <div class="member-name">
+                Santiago<br>Gomez
+              </div>
+
+              <div class="member-role">
+                Equipo fundador
+              </div>
+            </div>
+
+          </article>
+
+
+          <!-- LUIS -->
+          <article class="team-card">
+
+            <div class="member-number">04</div>
+
+            <div>
+              <div class="member-name">
+                Luis<br>Bohorquez
+              </div>
+
+              <div class="member-role">
+                Equipo fundador
+              </div>
+            </div>
+
+          </article>
+
+
+          <!-- ESTEBAN -->
+          <article class="team-card">
+
+            <div class="member-number">05</div>
+
+            <div>
+              <div class="member-name">
+                Esteban<br>Bustos
+              </div>
+
+              <div class="member-role">
+                Equipo fundador
+              </div>
+            </div>
+
+          </article>
+
+        </div>
+
+      </section>
+
+
+      <!-- OBJETIVO -->
+      <section class="objective-section">
+
+        <div class="objective-label">
+          02 / NUESTRO OBJETIVO
+        </div>
+
+        <h2>
+          Digitalizar negocios
+          <span>sin hacerlo complicado.</span>
+        </h2>
+
+        <p>
+          Queremos que tener presencia digital no sea algo complicado
+          ni exclusivo de las grandes empresas. En DigiAR Rv buscamos
+          crear soluciones modernas, funcionales y adaptadas a las
+          necesidades de cada negocio.
+        </p>
+
+      </section>
+
+
+      <!-- CIERRE -->
+      <section class="final-section">
+
+        <h2>
+          Digitalizamos<br>
+          negocios.
+        </h2>
+
+        <p>
+          Una idea puede comenzar entre amigos.
+          Nosotros queremos convertirla en algo digital.
+        </p>
+
+      </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer class="about-footer">
+
+      <p>© 2026 DigiAR Rv</p>
+
+      <p>Webs · Apps · Digitalización</p>
+
+    </footer>
+
+  </div>
+
+
+  <!-- JAVASCRIPT DEL MENÚ -->
+  <script>
+    const openMenu = document.getElementById("openMenu");
+    const closeMenu = document.getElementById("closeMenu");
+    const sideMenu = document.getElementById("sideMenu");
+
+    openMenu.addEventListener("click", () => {
+      sideMenu.classList.add("active");
+    });
+
+    closeMenu.addEventListener("click", () => {
+      sideMenu.classList.remove("active");
+    });
+
+    document.addEventListener("click", (event) => {
+
+      if (
+        sideMenu.classList.contains("active") &&
+        !sideMenu.contains(event.target) &&
+        !openMenu.contains(event.target)
+      ) {
+        sideMenu.classList.remove("active");
+      }
+
+    });
+  </script>
+
+</body>
+</html>
