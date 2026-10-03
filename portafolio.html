@@ -30,15 +30,39 @@
     }
 
     /* =========================
+       FONDO GENERAL
+    ========================= */
+
+    .portfolio {
+      min-height: 100vh;
+
+      background:
+        radial-gradient(
+          circle at 85% 12%,
+          rgba(90,110,125,.13),
+          transparent 28%
+        ),
+        radial-gradient(
+          circle at 10% 45%,
+          rgba(255,255,255,.025),
+          transparent 30%
+        ),
+        #0b0d0f;
+    }
+
+
+    /* =========================
        HEADER
     ========================= */
 
     .header {
       width: 100%;
       padding: 28px 6%;
+
       display: flex;
       justify-content: space-between;
       align-items: center;
+
       position: relative;
       z-index: 20;
     }
@@ -51,15 +75,21 @@
     .menu-button {
       width: 48px;
       height: 48px;
+
       border-radius: 50%;
       border: 1px solid rgba(255,255,255,.15);
+
       background: rgba(255,255,255,.035);
+
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
+
       gap: 5px;
+
       cursor: pointer;
+
       transition: .3s;
     }
 
@@ -74,22 +104,32 @@
       transform: rotate(4deg);
     }
 
+
     /* =========================
-       SIDE MENU
+       MENÚ LATERAL
     ========================= */
 
     .side-menu {
       position: fixed;
+
       right: -340px;
       top: 0;
+
       width: 340px;
       height: 100vh;
+
       background: #101316;
+
       border-left: 1px solid rgba(255,255,255,.1);
+
       z-index: 100;
+
       padding: 35px;
+
       transition: .4s ease;
-      box-shadow: -20px 0 60px rgba(0,0,0,.4);
+
+      box-shadow:
+        -20px 0 60px rgba(0,0,0,.4);
     }
 
     .side-menu.active {
@@ -99,12 +139,19 @@
     .close-menu {
       width: 42px;
       height: 42px;
+
       border-radius: 50%;
+
       border: 1px solid rgba(255,255,255,.15);
+
       background: transparent;
+
       color: white;
+
       font-size: 24px;
+
       cursor: pointer;
+
       float: right;
     }
 
@@ -115,40 +162,28 @@
 
     .menu-content small {
       color: #69747d;
+
       letter-spacing: 3px;
+
       font-size: 11px;
     }
 
     .menu-content a {
       display: block;
+
       font-size: 25px;
+
       margin-top: 27px;
+
       transition: .3s;
     }
 
     .menu-content a:hover {
       color: #8d99a3;
+
       padding-left: 8px;
     }
 
-    /* =========================
-       MAIN
-    ========================= */
-
-    .portfolio {
-      min-height: 100vh;
-      background:
-        radial-gradient(
-          circle at 85% 12%,
-          rgba(90,110,125,.13),
-          transparent 28%
-        ),
-        radial-gradient(
-          circle at 10% 45%,
-          rgba(255,255,255,.025),
-          transparent 30%
-        );
-    }
 
     /* =========================
        HERO
@@ -157,22 +192,31 @@
     .hero {
       width: 88%;
       max-width: 1250px;
+
       margin: 70px auto 120px;
     }
 
     .label {
       color: #737f88;
+
       font-size: 12px;
+
       letter-spacing: 3px;
+
       text-transform: uppercase;
+
       margin-bottom: 25px;
     }
 
     .hero h1 {
       font-size: clamp(55px, 9vw, 115px);
+
       line-height: .9;
+
       letter-spacing: -6px;
+
       font-weight: 500;
+
       max-width: 1000px;
     }
 
@@ -182,141 +226,106 @@
 
     .hero p {
       max-width: 650px;
+
       color: #9ca4aa;
+
       font-size: 18px;
+
       line-height: 1.8;
+
       margin-top: 40px;
     }
 
+
     /* =========================
-       PROJECTS
+       PROYECTOS
     ========================= */
 
     .projects {
       width: 88%;
       max-width: 1250px;
+
       margin: auto;
     }
 
     .project {
       display: grid;
-      grid-template-columns: 1.25fr .75fr;
+
+      grid-template-columns:
+        1.25fr
+        .75fr;
+
       min-height: 480px;
+
       margin-bottom: 25px;
-      border: 1px solid rgba(255,255,255,.08);
+
+      border:
+        1px solid
+        rgba(255,255,255,.08);
+
       background:
         linear-gradient(
           135deg,
           rgba(255,255,255,.055),
           rgba(255,255,255,.012)
         );
+
       overflow: hidden;
+
       transition: .4s ease;
     }
 
     .project:hover {
-      border-color: rgba(255,255,255,.18);
-      transform: translateY(-5px);
+      border-color:
+        rgba(255,255,255,.18);
+
+      transform:
+        translateY(-5px);
     }
+
+
+    /* =========================
+       PREVIEW
+    ========================= */
 
     .preview {
       min-height: 480px;
-      position: relative;
-      overflow: hidden;
-      background: #111416;
-    }
 
-    .preview::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(
-          90deg,
-          rgba(11,13,15,.1),
-          transparent 50%,
-          rgba(11,13,15,.25)
-        );
-      pointer-events: none;
+      position: relative;
+
+      overflow: hidden;
+
+      background: #111416;
     }
 
     .preview iframe {
       width: 100%;
       height: 100%;
+
       min-height: 480px;
+
       border: 0;
+
       background: white;
     }
 
-    .project-info {
-      padding: 55px 45px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .project-number {
-      color: #657079;
-      font-size: 11px;
-      letter-spacing: 3px;
-    }
-
-    .project-info h2 {
-      font-size: clamp(35px, 4vw, 58px);
-      line-height: .98;
-      letter-spacing: -3px;
-      font-weight: 500;
-      margin: 25px 0 20px;
-    }
-
-    .project-info h2 span {
-      color: #737e87;
-    }
-
-    .project-type {
-      color: #879199;
-      font-size: 11px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      margin-bottom: 25px;
-    }
-
-    .project-description {
-      color: #9da5aa;
-      line-height: 1.7;
-      font-size: 15px;
-      max-width: 400px;
-    }
-
-    .project-button {
-      display: inline-flex;
-      width: fit-content;
-      align-items: center;
-      gap: 15px;
-      margin-top: 35px;
-      padding: 14px 20px;
-      border: 1px solid rgba(255,255,255,.15);
-      font-size: 12px;
-      letter-spacing: 1px;
-      transition: .3s;
-    }
-
-    .project-button:hover {
-      background: white;
-      color: #0b0d0f;
-    }
 
     /* =========================
-       PROJECT WITHOUT PREVIEW
+       PROYECTOS SIN IFRAME
     ========================= */
 
     .fallback-preview {
       min-height: 480px;
+
       display: flex;
+
       align-items: center;
       justify-content: center;
+
       position: relative;
+
       overflow: hidden;
+
       background:
         radial-gradient(
           circle at center,
@@ -328,25 +337,126 @@
 
     .fallback-content {
       text-align: center;
+
       padding: 30px;
     }
 
     .fallback-icon {
       font-size: 55px;
+
       margin-bottom: 20px;
+
       opacity: .8;
     }
 
     .fallback-content h3 {
       font-size: 32px;
+
       font-weight: 500;
+
       letter-spacing: -1px;
     }
 
     .fallback-content p {
       color: #737e87;
+
       margin-top: 10px;
     }
+
+
+    /* =========================
+       INFORMACIÓN PROYECTO
+    ========================= */
+
+    .project-info {
+      padding: 55px 45px;
+
+      display: flex;
+
+      flex-direction: column;
+
+      justify-content: space-between;
+    }
+
+    .project-number {
+      color: #657079;
+
+      font-size: 11px;
+
+      letter-spacing: 3px;
+    }
+
+    .project-info h2 {
+      font-size:
+        clamp(35px,4vw,58px);
+
+      line-height: .98;
+
+      letter-spacing: -3px;
+
+      font-weight: 500;
+
+      margin:
+        25px 0 20px;
+    }
+
+    .project-info h2 span {
+      color: #737e87;
+    }
+
+    .project-type {
+      color: #879199;
+
+      font-size: 11px;
+
+      letter-spacing: 2px;
+
+      text-transform: uppercase;
+
+      margin-bottom: 25px;
+    }
+
+    .project-description {
+      color: #9da5aa;
+
+      line-height: 1.7;
+
+      font-size: 15px;
+
+      max-width: 400px;
+    }
+
+    .project-button {
+      display: inline-flex;
+
+      width: fit-content;
+
+      align-items: center;
+
+      gap: 15px;
+
+      margin-top: 35px;
+
+      padding:
+        14px 20px;
+
+      border:
+        1px solid
+        rgba(255,255,255,.15);
+
+      font-size: 12px;
+
+      letter-spacing: 1px;
+
+      transition: .3s;
+    }
+
+    .project-button:hover {
+      background: white;
+
+      color: #0b0d0f;
+    }
+
 
     /* =========================
        CTA
@@ -355,24 +465,40 @@
     .cta {
       width: 88%;
       max-width: 1250px;
+
       margin: 110px auto;
+
       padding: 90px 0;
-      border-top: 1px solid rgba(255,255,255,.08);
-      border-bottom: 1px solid rgba(255,255,255,.08);
+
+      border-top:
+        1px solid
+        rgba(255,255,255,.08);
+
+      border-bottom:
+        1px solid
+        rgba(255,255,255,.08);
     }
 
     .cta small {
       color: #737f88;
+
       letter-spacing: 3px;
+
       font-size: 11px;
     }
 
     .cta h2 {
       max-width: 900px;
+
       margin-top: 25px;
-      font-size: clamp(40px, 7vw, 85px);
+
+      font-size:
+        clamp(40px,7vw,85px);
+
       line-height: .98;
+
       letter-spacing: -5px;
+
       font-weight: 500;
     }
 
@@ -382,10 +508,14 @@
 
     .cta p {
       color: #8e979d;
+
       max-width: 600px;
+
       margin-top: 30px;
+
       line-height: 1.8;
     }
+
 
     /* =========================
        FOOTER
@@ -394,14 +524,25 @@
     footer {
       width: 88%;
       max-width: 1250px;
+
       margin: auto;
-      padding: 30px 0 45px;
-      border-top: 1px solid rgba(255,255,255,.08);
+
+      padding:
+        30px 0 45px;
+
+      border-top:
+        1px solid
+        rgba(255,255,255,.08);
+
       display: flex;
+
       justify-content: space-between;
+
       color: #626b72;
+
       font-size: 12px;
     }
+
 
     /* =========================
        RESPONSIVE
@@ -427,6 +568,7 @@
       }
     }
 
+
     @media(max-width: 600px) {
 
       .header {
@@ -443,6 +585,7 @@
 
       .hero {
         margin-top: 50px;
+
         margin-bottom: 80px;
       }
 
@@ -479,390 +622,619 @@
         margin-top: 12px;
       }
     }
+
   </style>
 </head>
 
+
 <body>
 
-  <div class="portfolio">
+<div class="portfolio">
 
-    <!-- HEADER -->
-    <header class="header">
 
-      <a href="index.html" class="logo">
-        <img
-          src="assets/logo-digiar-rv.png"
-          alt="DigiAR Rv"
-        >
+  <!-- =========================
+       HEADER
+  ========================== -->
+
+  <header class="header">
+
+    <a href="index.html" class="logo">
+
+      <img
+        src="assets/logo-digiar-rv.png"
+        alt="DigiAR Rv"
+      >
+
+    </a>
+
+
+    <button
+      class="menu-button"
+      id="openMenu"
+      aria-label="Abrir menú"
+    >
+
+      <span></span>
+      <span></span>
+      <span></span>
+
+    </button>
+
+  </header>
+
+
+
+  <!-- =========================
+       MENÚ
+  ========================== -->
+
+  <aside
+    class="side-menu"
+    id="sideMenu"
+  >
+
+    <button
+      class="close-menu"
+      id="closeMenu"
+      aria-label="Cerrar menú"
+    >
+      ×
+    </button>
+
+
+    <div class="menu-content">
+
+      <small>DIGIAR RV</small>
+
+
+      <a href="index.html">
+        Qué hacemos
       </a>
 
-      <button
-        class="menu-button"
-        id="openMenu"
-        aria-label="Abrir menú"
-      >
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
 
-    </header>
+      <a href="sobre-nosotros.html">
+        Sobre nosotros
+      </a>
 
 
-    <!-- MENÚ -->
-    <aside class="side-menu" id="sideMenu">
+      <a href="portafolio.html">
+        Portafolio
+      </a>
 
-      <button
-        class="close-menu"
-        id="closeMenu"
-        aria-label="Cerrar menú"
-      >
-        ×
-      </button>
+    </div>
 
-      <div class="menu-content">
+  </aside>
 
-        <small>DIGIAR RV</small>
 
-        <a href="index.html">
-          Qué hacemos
-        </a>
 
-        <a href="sobre-nosotros.html">
-          Sobre nosotros
-        </a>
+  <!-- =========================
+       HERO
+  ========================== -->
 
-        <a href="portafolio.html">
-          Portafolio
+  <section class="hero">
+
+    <div class="label">
+      DIGIAR RV · PROYECTOS
+    </div>
+
+
+    <h1>
+
+      Nuestro<br>
+
+      <span>
+        portafolio.
+      </span>
+
+    </h1>
+
+
+    <p>
+
+      Una selección de proyectos digitales desarrollados
+      para diferentes tipos de negocios y necesidades.
+      Webs, aplicaciones, catálogos y experiencias digitales
+      creadas para llevar negocios al mundo digital.
+
+    </p>
+
+  </section>
+
+
+
+  <!-- =========================
+       PROYECTOS
+  ========================== -->
+
+  <section class="projects">
+
+
+
+    <!-- =========================
+         01 ARCOMPRA
+    ========================== -->
+
+    <article class="project">
+
+
+      <div class="preview">
+
+        <iframe
+          src="https://ar-compra-app.vercel.app/"
+          title="ArCompra"
+          loading="lazy">
+        </iframe>
+
+      </div>
+
+
+      <div class="project-info">
+
+        <div>
+
+          <div class="project-number">
+            01 / 05
+          </div>
+
+
+          <h2>
+
+            Ar<span>Compra.</span>
+
+          </h2>
+
+
+          <div class="project-type">
+
+            App · Comparador de precios
+
+          </div>
+
+
+          <p class="project-description">
+
+            Aplicación diseñada para comparar productos
+            y precios entre diferentes tiendas, ayudando
+            al usuario a encontrar opciones de compra
+            de forma rápida y sencilla.
+
+          </p>
+
+        </div>
+
+
+        <a
+          href="https://ar-compra-app.vercel.app/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="project-button"
+        >
+
+          VER PROYECTO →
+
         </a>
 
       </div>
 
-    </aside>
+    </article>
 
 
-    <!-- HERO -->
-    <section class="hero">
 
-      <div class="label">
-        DIGIAR RV · PROYECTOS
+    <!-- =========================
+         02 BARBERÍA JADE
+    ========================== -->
+
+    <article class="project">
+
+
+      <div class="preview">
+
+        <iframe
+          src="https://barberia-jade-omega.vercel.app/"
+          title="Barbería Jade"
+          loading="lazy">
+        </iframe>
+
       </div>
 
-      <h1>
-        Nuestro<br>
-        <span>portafolio.</span>
-      </h1>
 
-      <p>
-        Una selección de proyectos digitales desarrollados para
-        diferentes tipos de negocios y necesidades. Webs, aplicaciones,
-        catálogos y experiencias digitales creadas para llevar
-        negocios al mundo digital.
-      </p>
+      <div class="project-info">
 
-    </section>
+        <div>
+
+          <div class="project-number">
+            02 / 05
+          </div>
 
 
-    <!-- PROYECTOS -->
-    <section class="projects">
+          <h2>
+
+            Barbería<br>
+
+            <span>
+              Jade.
+            </span>
+
+          </h2>
 
 
-      <!-- =========================
-           01 ARCOMPRA
-      ========================== -->
+          <div class="project-type">
 
-      <article class="project">
-
-        <div class="preview">
-
-          <iframe
-            src="https://ar-compra-app.vercel.app/"
-            title="ArCompra"
-            loading="lazy">
-          </iframe>
-
-        </div>
-
-        <div class="project-info">
-
-          <div>
-
-            <div class="project-number">
-              01 / 04
-            </div>
-
-            <h2>
-              Ar<span>Compra.</span>
-            </h2>
-
-            <div class="project-type">
-              App · Comparador de precios
-            </div>
-
-            <p class="project-description">
-              Aplicación diseñada para comparar productos y precios
-              entre diferentes tiendas, ayudando al usuario a encontrar
-              opciones de compra de forma rápida y sencilla.
-            </p>
+            Sitio web · Barbería
 
           </div>
 
-          <a
-            href="https://ar-compra-app.vercel.app/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="project-button"
-          >
-            VER PROYECTO →
-          </a>
+
+          <p class="project-description">
+
+            Sitio web creado para una barbería moderna,
+            con servicios, barberos, información de contacto,
+            sedes y sistema de reserva de citas.
+
+          </p>
 
         </div>
 
-      </article>
+
+        <a
+          href="https://barberia-jade-omega.vercel.app/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="project-button"
+        >
+
+          VER PROYECTO →
+
+        </a>
+
+      </div>
+
+    </article>
 
 
-      <!-- =========================
-           02 BARBERÍA
-      ========================== -->
 
-      <article class="project">
+    <!-- =========================
+         03 BEAUTYBODEGA
+    ========================== -->
 
-        <div class="preview">
+    <article class="project">
 
-          <iframe
-            src="https://barberia-jade-omega.vercel.app/"
-            title="Barbería Jade"
-            loading="lazy">
-          </iframe>
 
-        </div>
+      <div class="preview">
 
-        <div class="project-info">
+        <iframe
+          src="https://beautybodega.vercel.app/"
+          title="BeautyBodega"
+          loading="lazy">
+        </iframe>
 
-          <div>
+      </div>
 
-            <div class="project-number">
-              02 / 04
-            </div>
 
-            <h2>
-              Barbería<br>
-              <span>Jade.</span>
-            </h2>
+      <div class="project-info">
 
-            <div class="project-type">
-              Sitio web · Barbería
-            </div>
+        <div>
 
-            <p class="project-description">
-              Sitio web creado para una barbería moderna, con servicios,
-              barberos, información de contacto, sedes y sistema de
-              reserva de citas.
-            </p>
+          <div class="project-number">
+            03 / 05
+          </div>
+
+
+          <h2>
+
+            Beauty<span>Bodega.</span>
+
+          </h2>
+
+
+          <div class="project-type">
+
+            E-commerce · Maquillaje & Skincare
 
           </div>
 
-          <a
-            href="https://barberia-jade-omega.vercel.app/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="project-button"
-          >
-            VER PROYECTO →
-          </a>
+
+          <p class="project-description">
+
+            Tienda digital enfocada en maquillaje,
+            skincare y accesorios, con catálogo de productos,
+            categorías, marcas, ofertas y carrito de compras.
+
+          </p>
 
         </div>
 
-      </article>
+
+        <a
+          href="https://beautybodega.vercel.app/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="project-button"
+        >
+
+          VER PROYECTO →
+
+        </a>
+
+      </div>
+
+    </article>
 
 
-      <!-- =========================
-           03 BEAUTYBODEGA
-      ========================== -->
 
-      <article class="project">
+    <!-- =========================
+         04 TIENDA DE ROPA
+    ========================== -->
 
-        <div class="preview">
+    <article class="project">
 
-          <iframe
-            src="https://beautybodega.vercel.app/"
-            title="BeautyBodega"
-            loading="lazy">
-          </iframe>
+
+      <div class="fallback-preview">
+
+        <div class="fallback-content">
+
+          <div class="fallback-icon">
+            ◇
+          </div>
+
+
+          <h3>
+            Tienda de ropa
+          </h3>
+
+
+          <p>
+            E-commerce · Moda
+          </p>
 
         </div>
 
-        <div class="project-info">
+      </div>
 
-          <div>
 
-            <div class="project-number">
-              03 / 04
-            </div>
+      <div class="project-info">
 
-            <h2>
-              Beauty<span>Bodega.</span>
-            </h2>
+        <div>
 
-            <div class="project-type">
-              E-commerce · Maquillaje & Skincare
-            </div>
+          <div class="project-number">
+            04 / 05
+          </div>
 
-            <p class="project-description">
-              Tienda digital enfocada en maquillaje, skincare y
-              accesorios, con catálogo de productos, categorías,
-              marcas, ofertas y carrito de compras.
-            </p>
+
+          <h2>
+
+            Tienda<br>
+
+            <span>
+              de ropa.
+            </span>
+
+          </h2>
+
+
+          <div class="project-type">
+
+            E-commerce · Moda
 
           </div>
 
-          <a
-            href="https://beautybodega.vercel.app/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="project-button"
-          >
-            VER PROYECTO →
-          </a>
+
+          <p class="project-description">
+
+            Tienda online desarrollada para presentar
+            productos de moda y facilitar la navegación,
+            selección y compra de prendas desde una
+            experiencia digital.
+
+          </p>
 
         </div>
 
-      </article>
+
+        <a
+          href="https://tiendaropa-brown.vercel.app/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="project-button"
+        >
+
+          VER PROYECTO →
+
+        </a>
+
+      </div>
+
+    </article>
 
 
-      <!-- =========================
-           04 TIENDA DE ROPA
-      ========================== -->
 
-      <article class="project">
+    <!-- =========================
+         05 GENNAILS
+    ========================== -->
 
-        <div class="fallback-preview">
+    <article class="project">
 
-          <div class="fallback-content">
 
-            <div class="fallback-icon">
-              ◇
-            </div>
+      <div class="fallback-preview">
 
-            <h3>
-              Tienda de ropa
-            </h3>
+        <div class="fallback-content">
 
-            <p>
-              E-commerce · Moda colombiana
-            </p>
+          <div class="fallback-icon">
+            ✦
+          </div>
+
+
+          <h3>
+            GenNails
+          </h3>
+
+
+          <p>
+            Sitio web · Nail Art & Beauty
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="project-info">
+
+        <div>
+
+          <div class="project-number">
+            05 / 05
+          </div>
+
+
+          <h2>
+
+            Gen<span>Nails.</span>
+
+          </h2>
+
+
+          <div class="project-type">
+
+            Sitio web · Nail Art & Beauty
 
           </div>
 
-        </div>
 
-        <div class="project-info">
+          <p class="project-description">
 
-          <div>
+            Sitio web diseñado para presentar diseños
+            personalizados de uñas, mostrar el trabajo
+            de Génesis Romero y facilitar la reserva
+            de citas mediante WhatsApp.
 
-            <div class="project-number">
-              04 / 04
-            </div>
-
-            <h2>
-              Tienda<br>
-              <span>de ropa.</span>
-            </h2>
-
-            <div class="project-type">
-              E-commerce · Moda
-            </div>
-
-            <p class="project-description">
-              Tienda online desarrollada para presentar productos
-              de moda y facilitar la navegación, selección y compra
-              de prendas desde una experiencia digital.
-            </p>
-
-          </div>
-
-          <a
-            href="https://tiendaropa-brown.vercel.app/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="project-button"
-          >
-            VER PROYECTO →
-          </a>
+          </p>
 
         </div>
 
-      </article>
+
+        <a
+          href="https://genails.vercel.app/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="project-button"
+        >
+
+          VER PROYECTO →
+
+        </a>
+
+      </div>
+
+    </article>
 
 
-    </section>
+  </section>
 
 
-    <!-- CTA -->
-    <section class="cta">
 
-      <small>
-        ¿TIENES UN NEGOCIO?
-      </small>
+  <!-- =========================
+       CTA
+  ========================== -->
 
-      <h2>
-        Tu negocio también
-        puede estar <span>en digital.</span>
-      </h2>
+  <section class="cta">
 
-      <p>
-        En DigiAR Rv desarrollamos páginas web, aplicaciones,
-        catálogos digitales y soluciones adaptadas a diferentes
-        tipos de negocios.
-      </p>
-
-    </section>
+    <small>
+      ¿TIENES UN NEGOCIO?
+    </small>
 
 
-    <!-- FOOTER -->
-    <footer>
+    <h2>
 
-      <p>
-        © 2026 DigiAR Rv
-      </p>
+      Tu negocio también
+      puede estar
 
-      <p>
-        Webs · Apps · Digitalización
-      </p>
+      <span>
+        en digital.
+      </span>
 
-    </footer>
-
-  </div>
+    </h2>
 
 
-  <!-- JAVASCRIPT -->
-  <script>
+    <p>
 
-    const openMenu = document.getElementById("openMenu");
-    const closeMenu = document.getElementById("closeMenu");
-    const sideMenu = document.getElementById("sideMenu");
+      En DigiAR Rv desarrollamos páginas web,
+      aplicaciones, catálogos digitales y soluciones
+      adaptadas a diferentes tipos de negocios.
 
-    openMenu.addEventListener("click", () => {
-      sideMenu.classList.add("active");
-    });
+    </p>
 
-    closeMenu.addEventListener("click", () => {
+  </section>
+
+
+
+  <!-- =========================
+       FOOTER
+  ========================== -->
+
+  <footer>
+
+    <p>
+      © 2026 DigiAR Rv
+    </p>
+
+
+    <p>
+      Webs · Apps · Digitalización
+    </p>
+
+  </footer>
+
+
+</div>
+
+
+
+<!-- =========================
+     JAVASCRIPT
+========================== -->
+
+<script>
+
+  const openMenu =
+    document.getElementById("openMenu");
+
+  const closeMenu =
+    document.getElementById("closeMenu");
+
+  const sideMenu =
+    document.getElementById("sideMenu");
+
+
+  openMenu.addEventListener("click", () => {
+
+    sideMenu.classList.add("active");
+
+  });
+
+
+  closeMenu.addEventListener("click", () => {
+
+    sideMenu.classList.remove("active");
+
+  });
+
+
+  document.addEventListener("click", (event) => {
+
+    if (
+      sideMenu.classList.contains("active") &&
+      !sideMenu.contains(event.target) &&
+      !openMenu.contains(event.target)
+    ) {
+
       sideMenu.classList.remove("active");
-    });
 
-    document.addEventListener("click", (event) => {
+    }
 
-      if (
-        sideMenu.classList.contains("active") &&
-        !sideMenu.contains(event.target) &&
-        !openMenu.contains(event.target)
-      ) {
-        sideMenu.classList.remove("active");
-      }
+  });
 
-    });
-
-  </script>
+</script>
 
 </body>
 </html>
